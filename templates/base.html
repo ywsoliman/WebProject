@@ -18,46 +18,16 @@
         <link href="{% static 'css/style1.css' %}" rel="stylesheet">
         <link href="{% static 'color/default.css' %}" rel="stylesheet">
 
-
-        <script>
-
-            function validateFormUp() {
-                var x = document.forms["SignUpForm"]["name"].value;
-                var p = document.forms["SignUpForm"]["UserName"].value;
-                var y = document.forms["SignUpForm"]["email"].value;
-                var z = document.forms["SignUpForm"]["password"].value;
-                var l = document.forms["SignUpForm"]["Confirmpassword"].value;
-
-                if (x == "" || p == "" || y == "" || z == "" || l == "") {
-                    alert("Please Enter All Information Fields");
-                    return false;
-                }
-                if (z != l) {
-                    alert("The Password and its confirm are different");
-                    return false;
-                }
-                else {
-                    alert("Success");
-                }
-
-
-            }
-
-
-        </script>
-
-
-
     </head>
 
     {% include 'parts/nav.html' %}
 
     {% if messages %}
-        {% for message in messages %}
-            <div class='alert alert-{{message.tags}}'>
-                {{message}}
-            </div>
-        {% endfor %}
+    {% for message in messages %}
+    <div class='alert alert-{{message.tags}}'>
+        {{message}}
+    </div>
+    {% endfor %}
     {% endif %}
 
     {% block content %}
@@ -67,6 +37,7 @@
     {% include 'parts/footer.html' %}
 
     <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+
 
         <!-- Core JavaScript Files -->
         <script src="{% static 'js/jquery.min.js' %}"></script>
