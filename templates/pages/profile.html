@@ -1,50 +1,59 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% load crispy_forms_tags %}
 
 {% block content %}
+
+<head>
+  <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+</head>
+
 <div class='container'>
-    <h2>Profile</h2>
-    <div class="home1" id="home1">
+  <br>
+  <h2>Profile</h2>
+  <div class="home1">
 
-        <div>
-            <img style="border-radius:50%; width:15%; height:15%" src="{{user.profile.image.url}}"
-                alt="Profile Picture">
-        </div>
-
-        <br>
-
-        <h3>Your Name:</h3>
-        <div id="yourname">
-            <h4>
-                {{ user.get_full_name }}
-            </h4>
-        </div>
-
-        <h3>Your UserName:</h3>
-        <div id="yourusername">
-            <h4>
-                {{ user.get_username }}
-            </h4>
-        </div>
-
-        <h3>Your Email:</h3>
-        <div id="youremail">
-            <h4>
-                {{ user.email }}
-            </h4>
-        </div>
-
-        <!-- <button class="btn btn-skin button "><a href="{% url 'updateform' }">Edit</a></button> -->
+    <div>
+      <img style="border-radius:50%; width:15%; height:15%" src="{{user.profile.image.url}}" alt="Profile Picture">
     </div>
-    <hr>
-    <h3>Update Profile Info</h3>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{user_form|crispy}}
-        {{profile_form|crispy}}
-        <button class="btn btn-skin button" type="submit">Update</button>
-    </form>
+
+    <br>
+
+    <h3>Your Name:</h3>
+    <div id="yourname">
+      <h4>
+        {{ user.get_full_name }}
+      </h4>
+    </div>
+
+    <h3>Your UserName:</h3>
+    <div id="yourusername">
+      <h4>
+        {{ user.get_username }}
+      </h4>
+    </div>
+
+    <h3>Your Email:</h3>
+    <div id="youremail">
+      <h4>
+        {{ user.email }}
+      </h4>
+    </div>
+
+    <!-- <button class="btn btn-skin button "><a href="{% url 'updateform' }">Edit</a></button> -->
+  </div>
+  <hr>
+
+  <h3>Update Profile Info</h3>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{user_form|crispy}}
+    {{profile_form|crispy}}
+    <button class="btn btn-skin button" type="submit">Update</button>
+  </form>
+
 </div>
 
 {% endblock %}
