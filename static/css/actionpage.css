@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: tahoma;
+}
+.container{
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media (min-width:768px){
+    .container{
+        width: 750px;
+    }
+}
+@media (min-width:992px){
+    .container{
+        width: 970px;
+    }
+}
+
+@media (min-width:1200px){
+    .container{
+        width: 1170px;
+    }
+}
+.action-page{
+    background-image: url('Dark-wooden-website-background.jpg');
+    background-size: cover;
+    min-height: 100vh;
+}
+.action-page .text h3{
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: tahoma;
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    position: relative;
+    top: 120px;
+}
+.action-page .btn{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+    gap: 30px;
+    position: relative;
+    top: 350px;
+}
+@media(max-width:767px){
+    .action-page .btn{
+        top: 135px;
+    }
+}
+.action-page .btn button{
+    color: white;
+    background-color: #F0B775;;
+    border: none;
+    padding: 15px;
+    margin-bottom: 50px;
+}
+.action-page .btn button:hover{
+    color: #fff;
+    background-color: #666;
+    border-color: #666;
+}
+.action-page .btn button a{
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+}
