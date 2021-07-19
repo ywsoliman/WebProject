@@ -3,13 +3,35 @@
 Browse All
 {% endblock %}
 {% block content %}
+<style>
+    .details {
+        width: 350px;
+        height: 350px;
+        background-color: black;
+        margin: 20px;
+    }
+</style>
 <div id="search">
     <h2 style="font-size: 40px;">BOOKS</h2>
-    <div class="container c">
-
-
+    {% for book in books %}
+    <div class="details ">
+        </br>
+        <h5>BOOK </h5>
+        <p style="color:white" id="NAME"><b>Book Name: {{book.title}}
+        </p>
+        <p style="color:white" id="AUTHOR"> <b>book author : {{book.author}}
+        </p>
+        <p style="color:white" id="statu"> <b>book category : {{book.category}} </p>
+        <p style="color:white" id="PRICE"> <b>book price : {{book.price}} </p>
+        <p style="color:white" id="statu"> <b>book status : {{book.status}} </p>
+        <button type="submit" class="button ">
+            borrow </button>
 
     </div>
+    {% endfor %}
+
+
 </div>
-</form>
+
+</div>
 {% endblock %}

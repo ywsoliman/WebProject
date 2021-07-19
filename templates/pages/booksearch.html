@@ -7,23 +7,23 @@
     <div class="container">
         <!-- /Section: update -->
         <div class="col-lg-8">
-            <form id="contact-form" method="post" role="form" class="contactForm">
+            <form id="contact-form" method="GET" role="form" class="contactForm" action="{% url 'browseall' %}">
                 <div class="row">
                     <div class="col-md-6">
 
-                        <div class="form-group	">
+                        <div class="form-group    ">
 
-                            <div class="form-group	">
+                            <div class="form-group    ">
                                 <label for="Book Name">
                                     Search By Name</label>
                                 <input type="text" name="BookName" class="form-control" id="BookName"
-                                    placeholder="New Book name " />
+                                    placeholder="New Book Name " />
 
                             </div>
 
                             <div class="form-group">
                                 <label for="Book Category">
-                                    Search By ID</label>
+                                    Search By Category</label>
 
                                 <input type="text" class="form-control" name="BookCategory" id="BookCategory"
                                     placeholder=" New Book Category" />
@@ -32,33 +32,20 @@
                             <div class="form-group">
                                 <label for="Book Link">
                                     Search By Author</label>
-                                <input type="text" name="BookLink" class="form-control" id="BookLink"
-                                    placeholder=" New Book Link" />
-                            </div>
-                            <div class="form-group">
-
-                                <label for="Book's Image Link">
-                                    Search By The Year </label>
-                                <input type="text" name="ImageLink" class="form-control" id="ImageLink"
-                                    placeholder="New image ink" />
+                                <input type="text" name="BookLink" class="form-control" id="BookAuthor"
+                                    placeholder=" New Book Author" />
                             </div>
 
-                            <div class="form-group">
-                                <label for="Author Name">
-                                    Search By Rating</label>
-                                <input type="text" name="AuthorName" class="form-control" id="AuthorName"
-                                    placeholder=" New Author Name" />
-
-                            </div>
-
-                            <button type="submit" class="btn btn-skin " id="btnContactUs">
-                                Search </button>
+                            <a href="{% url 'ONsearch' %}">
+                                <button type="submit" class="btn btn-skin " id="btnContactUs">Search</button>
+                            </a>
                         </div>
             </form>
-            <a class='btn btn-skin' href="{% url 'browseall' %}">
-                Browse All
-            </a>
+
+            <a href="{% url 'browseall' %}"><button type="button" class="btn btn-skin " id="btnContactUs">Browse
+                    All</button></a>
         </div>
+
     </div>
 </section>
 {% endblock %}

@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from .models import *
 
 # Create your views here.
 def home(request):
@@ -13,7 +14,6 @@ def register(request):
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            username = form.cleaned_data.get('username')
             messages.success(request, f'Your account has been created successfully!')
             return redirect('login')
     else:
@@ -47,5 +47,33 @@ def profile(request):
 def search(request):
     return render(request, 'pages/booksearch.html')
 
+def ONsearch(request):
+    context2={
+       'books' : Book.objects.all(),
+    }
+    return render(request, 'pages/ONsearch.html',context2)
+
 def browseall(request):
-    return render(request, 'pages/browseall.html')
+    search = Book.objects.all()
+    title = None
+    category = None
+    author = None
+    if 'BookName' in request.GET:
+        title = request.GET['BookName']
+        if title:
+            search = search.filter(title__icontains=title)
+
+    elif 'BookCategory' in request.GET:
+        category = request.GET['BookCategory']
+        if category:
+            search = search.filter(category__icontains=category)
+
+    elif 'BookAuthor' in request.GET:
+        author = request.GET['BookAuthor']
+        if author:
+            search = search.filter(author__icontains=author)
+
+    context = {
+        'books': search
+    }
+    return render(request, 'pages/browseall.html',context)
